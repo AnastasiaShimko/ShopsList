@@ -1,0 +1,25 @@
+﻿@using ShopsList.Business.Models
+@model IEnumerable<ShopsList.Business.Models.Shop>
+@{
+    ViewBag.Title = "";
+}
+
+<h2>Список магазинов</h2>
+<table>
+    <thead>
+    <tr><th>Наименование</th><th>Режим работы</th><th></th></tr>
+    </thead>
+    <tbody>
+    @foreach (Shop shop in Model)
+    {
+        <tr>
+            <td>@shop.Name</td>
+            <td>@shop.WorkingHours</td>
+            <td><button onclick="ajaxInfo(@shop.Id);">О магазине</button></td>
+        </tr>
+    }
+    </tbody>
+</table>
+<p></p>
+<p>Описание магазина: </p>
+<p id="info"></p>
